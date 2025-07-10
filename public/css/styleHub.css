@@ -1,0 +1,212 @@
+/* Fond général du body */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #e0f7fa, #cceeff);
+}
+
+/* Conteneur général */
+#hub-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Titre principal */
+#hub-title {
+    font-family: 'Rubik', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+}
+
+/* Grille d’images */
+#image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 colonnes fixes */
+    grid-auto-rows: auto;
+    /* Laisse la hauteur s'adapter au contenu */
+    gap: 2rem;
+    justify-items: center;
+}
+
+/* Élément contenant un lien */
+.hub-item {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: reveal 0.6s ease forwards;
+}
+
+
+.hub-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.hub-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.hub-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.hub-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.hub-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.hub-item:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.hub-item:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.hub-item:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+@keyframes reveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Lien contenant image + titre */
+.hub-image-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Image moderne animée */
+.hub-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transform-style: preserve-3d;
+}
+
+
+
+/* Animation douce de pulsation */
+.hub-image:not(#logo-img) {
+    animation: pulseScale 3s ease-in-out infinite;
+}
+
+/* Animation des images */
+@keyframes pulseScale {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+/* Animation au survol */
+.hub-image-link:hover .hub-image {
+    transform: scale(1.07) rotateX(3deg) rotateY(3deg);
+    box-shadow: 0 12px 30px rgba(0, 123, 255, 0.3);
+    /* effet glow bleu */
+}
+
+/* Titre sous l’image */
+.hub-caption {
+    margin-top: 0.6rem;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+/* Style moderne des titres */
+.hub-image-link h3 {
+    text-decoration: none;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1e1e1e;
+    margin-top: 1rem;
+    letter-spacing: 0.4px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    animation: pulseText 3s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+
+.hub-image-link:hover h3 {
+    color: #007BFF;
+    transform: translateY(-2px);
+}
+
+
+/* Survol du lien = changement du titre */
+.hub-image-link:hover .hub-caption {
+    color: #007BFF;
+    /* bleu au survol, personnalisable */
+}
+
+/* Conteneur du logo */
+#logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Image du logo */
+#logo-img {
+    height: 100px;
+    max-width: 200px;
+    object-fit: contain;
+}
+
+/* On cache le contenu avant l'animation */
+#main-content {
+    display: none;
+}
+
+/* Fondu d’apparition pour le contenu principal */
+#main-content.fade-in {
+    animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
